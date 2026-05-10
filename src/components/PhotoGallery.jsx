@@ -9,13 +9,13 @@ export default function PhotoGallery({ srcs, alt }) {
   function prev() { setIndex(i => (i - 1 + srcs.length) % srcs.length) }
 
   return (
-    <div className="relative w-full max-w-lg mx-auto rounded-2xl overflow-hidden shadow-lg">
+    <div className="relative w-full max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
       <AnimatePresence mode="wait">
         <motion.img
           key={index}
           src={srcs[index]}
           alt={`${alt} ${index + 1}`}
-          className="w-full h-72 md:h-96 object-cover"
+          className="w-full h-[420px] lg:h-[560px] object-cover"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
@@ -28,24 +28,24 @@ export default function PhotoGallery({ srcs, alt }) {
           <button
             aria-label="prev"
             onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-9 h-9 flex items-center justify-center text-gray-600 shadow"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center text-gray-600 shadow-md text-xl"
           >
             ‹
           </button>
           <button
             aria-label="next"
             onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-9 h-9 flex items-center justify-center text-gray-600 shadow"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center text-gray-600 shadow-md text-xl"
           >
             ›
           </button>
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
             {srcs.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIndex(i)}
                 aria-label={`photo ${i + 1}`}
-                className={`w-2 h-2 rounded-full transition-colors ${i === index ? 'bg-white' : 'bg-white/40'}`}
+                className={`w-2 h-2 rounded-full transition-all ${i === index ? 'bg-white w-5' : 'bg-white/50'}`}
               />
             ))}
           </div>
