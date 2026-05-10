@@ -1,23 +1,26 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useId } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const AUTO_INTERVAL = 6000
 
 export default function PhotoGallery({ srcs, alt, objectPosition = 'center', accentColor = '#fda4af', photoHeight }) {
-  const [index, setIndex]     = useState(0)
-  const [paused, setPaused]   = useState(false)
+  const [index, setIndex]       = useState(0)
+  const [paused, setPaused]     = useState(false)
   const [progress, setProgress] = useState(0)
+  const [loaded, setLoaded]     = useState(false)
   const containerRef = useRef()
   const hasMultiple  = srcs.length > 1
 
   const next = useCallback(() => {
     setIndex(i => (i + 1) % srcs.length)
     setProgress(0)
+    setLoaded(false)
   }, [srcs.length])
 
   function prev() {
     setIndex(i => (i - 1 + srcs.length) % srcs.length)
     setProgress(0)
+    setLoaded(false)
   }
 
   // Auto-advance timer
@@ -51,16 +54,30 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
     <div ref={containerRef} className="gallery-fullscreen relative w-full max-w-3xl mx-auto group">
 
       {/* Photo */}
-      <div className="rounded-3xl overflow-hidden shadow-2xl">
+      <div className="rounded-3xl overflow-hidden shadow-2xl relative">
+
+        {/* Skeleton loader */}
+        {!loaded && (
+          <div
+            className={`absolute inset-0 ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
+            style={{
+              background: 'linear-gradient(90deg, #f5ece6 25%, #fdf0ea 50%, #f5ece6 75%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 1.6s infinite',
+            }}
+          />
+        )}
+
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
             src={srcs[index]}
             alt={`${alt} ${index + 1}`}
             className={`gallery-img w-full object-cover ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
-            style={{ objectPosition }}
+            style={{ objectPosition, opacity: loaded ? 1 : 0 }}
+            onLoad={() => setLoaded(true)}
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ opacity: loaded ? 1 : 0, x: loaded ? 0 : 30 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.5 }}
           />

@@ -29,6 +29,12 @@ body::after {
   background-size: 300px 300px;
 }
 
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 /* Music wave bar animation */
 @keyframes wave-bar {
   0%, 100% { transform: scaleY(0.4); }
