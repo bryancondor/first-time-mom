@@ -26,7 +26,7 @@ export default function JourneySection({ section, sectionIndex, totalSections })
 
   return (
     <motion.section
-      className="relative flex flex-col items-center justify-center min-h-screen px-8 py-14"
+      className="relative flex flex-col items-center justify-center min-h-screen px-5 py-10"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -38,7 +38,7 @@ export default function JourneySection({ section, sectionIndex, totalSections })
         {counter && (
           <motion.p
             variants={itemVariants}
-            className="text-right text-xs font-body tracking-[0.2em] text-gray-300 mb-6 select-none"
+            className="text-right text-xs font-body tracking-[0.2em] text-gray-300 mb-3 select-none"
           >
             {counter}
           </motion.p>
@@ -63,28 +63,27 @@ export default function JourneySection({ section, sectionIndex, totalSections })
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="font-display text-3xl lg:text-4xl font-bold text-gray-800 leading-tight text-center mb-7"
+          className="font-display text-2xl lg:text-4xl font-bold text-gray-800 leading-tight text-center mb-4"
         >
           {titleText}
         </motion.h2>
 
         {/* Photo gallery */}
-        <motion.div variants={itemVariants} className="mb-8">
+        <motion.div variants={itemVariants} className="mb-5">
           <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} accentColor={accentColor} photoHeight={photoHeight} />
         </motion.div>
 
         {/* Quote with decorative background mark */}
         <motion.div variants={itemVariants} className="max-w-2xl mx-auto text-center">
-          <div className="relative inline-block text-left border-l-4 pl-6" style={{ borderColor: accentColor }}>
-            {/* Decorative large quotation mark */}
+          <div className="relative sm:inline-block sm:text-left sm:border-l-4 sm:pl-6 px-4 sm:px-0" style={{ borderColor: accentColor }}>
             <span
-              className="absolute -top-4 -left-2 font-display text-8xl leading-none select-none pointer-events-none"
+              className="hidden sm:block absolute -top-4 -left-2 font-display text-8xl leading-none select-none pointer-events-none"
               style={{ color: accentColor, opacity: 0.12 }}
               aria-hidden="true"
             >
               "
             </span>
-            <p className="font-display text-xl lg:text-2xl text-gray-700 italic leading-relaxed relative z-10">
+            <p className="font-display text-base lg:text-2xl text-gray-700 italic leading-relaxed relative z-10">
               "{phrase}"
             </p>
           </div>
