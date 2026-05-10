@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import musicSrc from '../assets/music/perfect-ed-sheeran.mp3'
 
@@ -7,14 +7,41 @@ const BAR_DELAYS = [0, 0.2, 0.4]
 export default function MusicPlayer() {
   const audioRef = useRef()
   const [playing, setPlaying] = useState(false)
+  const startedRef = useRef(false)
+
+  function startMusic() {
+    if (startedRef.current || !audioRef.current) return
+    audioRef.current.play()
+      .then(() => { setPlaying(true); startedRef.current = true })
+      .catch(() => {})
+  }
+
+  useEffect(() => {
+    // Try immediate autoplay (works on some browsers)
+    const timer = setTimeout(startMusic, 800)
+
+    // Fallback: start on first user interaction
+    const onInteract = () => { startMusic(); cleanup() }
+    const cleanup = () => {
+      window.removeEventListener('scroll', onInteract)
+      window.removeEventListener('click',  onInteract)
+      window.removeEventListener('keydown', onInteract)
+    }
+    window.addEventListener('scroll',  onInteract, { once: true })
+    window.addEventListener('click',   onInteract, { once: true })
+    window.addEventListener('keydown', onInteract, { once: true })
+
+    return () => { clearTimeout(timer); cleanup() }
+  }, [])
 
   function toggle() {
     if (!audioRef.current) return
     if (playing) {
       audioRef.current.pause()
       setPlaying(false)
+      startedRef.current = false
     } else {
-      audioRef.current.play().then(() => setPlaying(true)).catch(() => {})
+      audioRef.current.play().then(() => { setPlaying(true); startedRef.current = true }).catch(() => {})
     }
   }
 
@@ -40,7 +67,7 @@ export default function MusicPlayer() {
                 style={{
                   height: '14px',
                   transformOrigin: 'bottom',
-                  animation: `wave-bar 0.7s ease-in-out infinite`,
+                  animation: 'wave-bar 0.7s ease-in-out infinite',
                   animationDelay: `${delay}s`,
                 }}
               />
