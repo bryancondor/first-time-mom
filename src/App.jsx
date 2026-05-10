@@ -1,5 +1,7 @@
 import FloatingScene from './components/FloatingScene'
 import Hero from './components/Hero'
+import JourneySection from './components/JourneySection'
+import { sections } from './data/journey'
 
 export default function App() {
   return (
@@ -7,6 +9,9 @@ export default function App() {
       <FloatingScene />
       <div className="relative" style={{ zIndex: 1 }}>
         <Hero />
+        {sections.map(section => (
+          <JourneySection key={section.id} section={section} />
+        ))}
       </div>
     </div>
   )
