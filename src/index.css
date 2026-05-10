@@ -34,3 +34,30 @@ body::after {
   0%, 100% { transform: scaleY(0.4); }
   50%       { transform: scaleY(1); }
 }
+
+/* Fullscreen gallery — image fills the screen */
+.gallery-fullscreen:fullscreen {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-fullscreen:fullscreen .gallery-img {
+  width: 100vw;
+  height: 100vh;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 0;
+}
+.gallery-fullscreen:fullscreen .gallery-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+}
+/* Vendor prefixes */
+.gallery-fullscreen:-webkit-full-screen { background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.gallery-fullscreen:-webkit-full-screen .gallery-img { width: 100vw; height: 100vh; max-height: none; object-fit: contain; border-radius: 0; }

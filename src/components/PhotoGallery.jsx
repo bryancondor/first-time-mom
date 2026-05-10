@@ -48,7 +48,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
   }
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-3xl mx-auto group">
+    <div ref={containerRef} className="gallery-fullscreen relative w-full max-w-3xl mx-auto group">
 
       {/* Photo */}
       <div className="rounded-3xl overflow-hidden shadow-2xl">
@@ -57,7 +57,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             key={index}
             src={srcs[index]}
             alt={`${alt} ${index + 1}`}
-            className="w-full h-[340px] lg:h-[440px] object-cover"
+            className="gallery-img w-full h-[340px] lg:h-[440px] object-cover"
             style={{ objectPosition }}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -111,7 +111,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
 
       {/* Progress bar + dots */}
       {hasMultiple && (
-        <div className="mt-3 px-1">
+        <div className="gallery-controls mt-3 px-1">
           {/* Thin progress bar */}
           <div className="h-[2px] w-full bg-gray-200 rounded-full overflow-hidden mb-2">
             <div
