@@ -73,7 +73,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             key={index}
             src={srcs[index]}
             alt={`${alt} ${index + 1}`}
-            className={`gallery-img w-full object-cover ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
+            className={`gallery-img w-full object-cover ${photoHeight ?? 'h-[260px] sm:h-[340px] lg:h-[440px]'}`}
             style={{ objectPosition, opacity: loaded ? 1 : 0 }}
             onLoad={() => setLoaded(true)}
             initial={{ opacity: 0, x: 30 }}
@@ -84,7 +84,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
         </AnimatePresence>
 
         {/* Top-right controls */}
-        <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="absolute top-3 right-3 flex gap-2 opacity-80 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
           {hasMultiple && (
             <button
               aria-label={paused ? 'reanudar' : 'pausar'}
@@ -111,14 +111,14 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             <button
               aria-label="prev"
               onClick={prev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-7 h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-0 group-hover:opacity-100 transition-all duration-200"
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-8 h-8 sm:w-7 sm:h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200"
             >
               ‹
             </button>
             <button
               aria-label="next"
               onClick={next}
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-7 h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-0 group-hover:opacity-100 transition-all duration-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-8 h-8 sm:w-7 sm:h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200"
             >
               ›
             </button>

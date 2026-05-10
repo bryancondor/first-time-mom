@@ -10,7 +10,7 @@ export const sections = [
       's1-silhouette-kiss.jpg',
     ],
     objectPosition: 'top',
-    photoHeight: 'h-[500px] lg:h-[620px]',
+    photoHeight: 'h-[360px] sm:h-[500px] lg:h-[620px]',
   },
   {
     id: 's2',
