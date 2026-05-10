@@ -1,0 +1,75 @@
+export const sections = [
+  {
+    id: 's1',
+    timeTag: 'El embarazo',
+    title: '✨ La espera más larga y más dulce',
+    phrase: 'Lo cargaste dentro tuyo antes de poder cargarlo en brazos. Eso también es amor.',
+    accentColor: '#fda4af',
+    photos: [
+      's1-silhouette-belly.jpg',
+      's1-silhouette-kiss.jpg',
+    ],
+  },
+  {
+    id: 's2',
+    timeTag: 'Mes 8–9 · Baby shower',
+    title: '🎀 Todo listo para recibirte',
+    phrase: 'Preparaste cada rincón con amor. Porque así eres tú: todo lo haces con el corazón.',
+    accentColor: '#c4b5fd',
+    photos: [
+      's2-shower-main.jpg',
+      's2-shower-clown.jpg',
+      's2-shower-magician.jpg',
+      's2-shower-niece.jpg',
+      's2-tree-hug.jpg',
+    ],
+  },
+  {
+    id: 's3',
+    timeTag: '15 de diciembre · El nacimiento',
+    title: '👶 Tu primer llanto fue mi primer milagro',
+    phrase: 'Lo viste por primera vez y sin decir una sola palabra, ya lo amabas más que a todo. Eso fuiste tú, Lilian.',
+    accentColor: '#fcd34d',
+    photos: [
+      's3-monitoring.jpg',
+      's3-first-sight.jpg',
+      's3-newborn-doctor.jpg',
+    ],
+  },
+  {
+    id: 's4',
+    timeTag: 'Primeras semanas · Mes 1',
+    title: '🌙 Noches sin dormir, amor sin límite',
+    phrase: 'Aprendiste todo sin manual. Sin descanso. Sin dudar. Eso no se llama suerte — se llama ser tú.',
+    accentColor: '#86efac',
+    photos: [
+      's4-suit-9days.jpg',
+      's4-nursing-christmas.jpg',
+      's4-one-month-cake.jpg',
+    ],
+  },
+  {
+    id: 's5',
+    timeTag: 'Mes 2–3',
+    title: '😊 La primera sonrisa que lo vale todo',
+    phrase: 'Adrián sonrió. Y en ese momento supiste exactamente para qué naciste tú también.',
+    accentColor: '#f9a8d4',
+    photos: [
+      's5-first-smile.jpg',
+      's5-cozy-3months.jpg',
+      's5-family-laughing.jpg',
+    ],
+  },
+  {
+    id: 's6',
+    timeTag: 'Hoy · 5 meses juntos',
+    title: '👑 Ya eres la mamá que Adrián necesitaba',
+    phrase: 'Míralo. Ya tiene cinco meses. Tú hiciste eso posible cada día. Feliz día, mamá.',
+    accentColor: '#fda4af',
+    photos: [
+      's6-looking-together.jpg',
+      's6-big-smile.jpg',
+      's6-cafe-family.jpg',
+    ],
+  },
+]
