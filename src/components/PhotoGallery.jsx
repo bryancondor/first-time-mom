@@ -59,7 +59,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
         {/* Skeleton loader */}
         {!loaded && (
           <div
-            className={`absolute inset-0 ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
+            className={`gallery-skeleton absolute inset-0 ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
             style={{
               background: 'linear-gradient(90deg, #f5ece6 25%, #fdf0ea 50%, #f5ece6 75%)',
               backgroundSize: '200% 100%',
