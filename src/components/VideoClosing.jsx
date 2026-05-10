@@ -23,7 +23,7 @@ export default function VideoClosing() {
         transition={{ duration: 1 }}
       >
         <p className="text-pink text-xs font-body tracking-[0.2em] uppercase mb-4">
-          Hoy · 5 meses
+          Hoy · Casi 5 meses
         </p>
         <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-700 mb-8">
           🎬 La primera carcajada

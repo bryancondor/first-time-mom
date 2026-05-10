@@ -64,9 +64,9 @@ export const sections = [
   },
   {
     id: 's6',
-    timeTag: 'Hoy · 5 meses juntos',
+    timeTag: 'Hoy · Casi 5 meses juntos',
     title: '👑 Ya eres la mamá que Adrián necesitaba',
-    phrase: 'Míralo. Ya tiene cinco meses. Tú hiciste eso posible cada día. Feliz día, mamá.',
+    phrase: 'Míralo. Casi cinco meses. Tú hiciste eso posible cada día. Feliz día, mamá.',
     accentColor: '#fda4af',
     photos: [
       's6-looking-together.jpg',
