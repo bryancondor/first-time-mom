@@ -48,7 +48,7 @@ export default function JourneySection({ section }) {
             className="inline-block border-l-4 pl-6 text-left"
             style={{ borderColor: accentColor }}
           >
-            <p className="font-display text-xl lg:text-2xl text-gray-500 italic leading-relaxed">
+            <p className="font-display text-xl lg:text-2xl text-gray-600 italic leading-relaxed">
               "{phrase}"
             </p>
           </div>

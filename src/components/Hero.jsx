@@ -10,7 +10,7 @@ export default function Hero() {
         className="max-w-3xl"
       >
         <motion.p
-          className="text-pink text-xs font-body tracking-[0.35em] uppercase mb-6"
+          className="text-pink text-sm font-body tracking-[0.3em] uppercase mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
@@ -18,16 +18,16 @@ export default function Hero() {
           🌸 &nbsp; Un regalo para ti &nbsp; 🌸
         </motion.p>
 
-        <h1 className="font-display text-7xl lg:text-9xl font-bold text-gray-700 mb-5 leading-none tracking-tight">
+        <h1 className="font-display text-7xl lg:text-9xl font-bold text-gray-800 mb-5 leading-none tracking-tight">
           Para Lilian
         </h1>
 
         <div className="w-16 h-px bg-pink mx-auto mb-5" />
 
-        <p className="font-display text-2xl lg:text-3xl text-gray-400 italic mb-3">
+        <p className="font-display text-2xl lg:text-3xl text-gray-600 italic mb-3">
           El año que todo cambió
         </p>
-        <p className="font-body text-gray-300 text-sm tracking-widest uppercase">
+        <p className="font-body text-gray-500 text-sm tracking-widest uppercase">
           Por amor a Adrián
         </p>
       </motion.div>
