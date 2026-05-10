@@ -1,6 +1,7 @@
 import FloatingScene from './components/FloatingScene'
 import Hero from './components/Hero'
 import JourneySection from './components/JourneySection'
+import VideoClosing from './components/VideoClosing'
 import { sections } from './data/journey'
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
         {sections.map(section => (
           <JourneySection key={section.id} section={section} />
         ))}
+        <VideoClosing />
       </div>
     </div>
   )
