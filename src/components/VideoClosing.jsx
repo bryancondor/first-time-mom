@@ -44,17 +44,21 @@ export default function VideoClosing() {
           🎬 La primera carcajada
         </h2>
 
-        <div className="rounded-2xl overflow-hidden shadow-2xl mb-10">
-          <video
-            ref={videoRef}
-            data-testid="closing-video"
-            src={videoSrc}
-            muted
-            loop
-            playsInline
-            controls
-            className="w-full max-h-[480px] object-cover"
-          />
+        {/* Portrait container — respects phone video aspect ratio */}
+        <div className="flex justify-center mb-10">
+          <div className="rounded-3xl overflow-hidden shadow-2xl w-full max-w-sm">
+            <video
+              ref={videoRef}
+              data-testid="closing-video"
+              src={videoSrc}
+              muted
+              loop
+              playsInline
+              controls
+              className="w-full h-auto"
+              style={{ aspectRatio: '9/16' }}
+            />
+          </div>
         </div>
 
         <motion.p

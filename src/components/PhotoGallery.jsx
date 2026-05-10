@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
+const AUTO_INTERVAL = 4000
 
 export default function PhotoGallery({ srcs, alt }) {
   const [index, setIndex] = useState(0)
   const hasMultiple = srcs.length > 1
 
-  function next() { setIndex(i => (i + 1) % srcs.length) }
+  const next = useCallback(() => setIndex(i => (i + 1) % srcs.length), [srcs.length])
   function prev() { setIndex(i => (i - 1 + srcs.length) % srcs.length) }
+
+  // Auto-advance every 4 seconds, resets if user clicks manually
+  useEffect(() => {
+    if (!hasMultiple) return
+    const timer = setInterval(next, AUTO_INTERVAL)
+    return () => clearInterval(timer)
+  }, [hasMultiple, next])
 
   return (
     <div className="relative w-full max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
@@ -19,7 +28,7 @@ export default function PhotoGallery({ srcs, alt }) {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.4 }}
         />
       </AnimatePresence>
 
@@ -45,7 +54,7 @@ export default function PhotoGallery({ srcs, alt }) {
                 key={i}
                 onClick={() => setIndex(i)}
                 aria-label={`photo ${i + 1}`}
-                className={`w-2 h-2 rounded-full transition-all ${i === index ? 'bg-white w-5' : 'bg-white/50'}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === index ? 'bg-white w-5' : 'bg-white/50 w-2'}`}
               />
             ))}
           </div>
