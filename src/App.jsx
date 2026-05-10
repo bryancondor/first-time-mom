@@ -2,6 +2,7 @@ import FloatingScene from './components/FloatingScene'
 import Hero from './components/Hero'
 import JourneySection from './components/JourneySection'
 import VideoClosing from './components/VideoClosing'
+import MusicPlayer from './components/MusicPlayer'
 import { sections } from './data/journey'
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         ))}
         <VideoClosing />
       </div>
+      <MusicPlayer />
     </div>
   )
 }
