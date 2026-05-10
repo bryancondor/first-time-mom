@@ -20,7 +20,7 @@ export default function Hero() {
   const title = 'Para Lilian'
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-6">
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-5">
       <div className="max-w-3xl">
         <motion.p
           className="text-pink text-sm font-body tracking-[0.3em] uppercase mb-6"
@@ -31,7 +31,7 @@ export default function Hero() {
 
         {/* Letter-by-letter title */}
         <motion.h1
-          className="font-display text-7xl lg:text-9xl font-bold text-gray-800 mb-5 leading-none tracking-tight"
+          className="font-display text-5xl lg:text-9xl font-bold text-gray-800 mb-5 leading-none tracking-tight"
           variants={titleVariants}
           initial="hidden"
           animate="visible"
@@ -51,7 +51,7 @@ export default function Hero() {
         <motion.div className="w-16 h-px bg-pink mx-auto mb-5" {...fadeUp(1.2)} />
 
         <motion.p
-          className="font-display text-2xl lg:text-3xl text-gray-600 italic mb-3"
+          className="font-display text-xl lg:text-3xl text-gray-600 italic mb-3"
           {...fadeUp(1.4)}
         >
           El año que todo cambió
