@@ -10,7 +10,11 @@ vi.mock('../utils/resolvePhoto', () => ({
 }))
 vi.mock('framer-motion', () => ({
   motion: {
-    section: ({ children, className }) => <section className={className}>{children}</section>,
+    section: ({ children, className })  => <section className={className}>{children}</section>,
+    p:       ({ children, className })  => <p className={className}>{children}</p>,
+    h2:      ({ children, className })  => <h2 className={className}>{children}</h2>,
+    span:    ({ children, className })  => <span className={className}>{children}</span>,
+    div:     ({ children, className })  => <div className={className}>{children}</div>,
   },
 }))
 
@@ -25,22 +29,22 @@ const mockSection = {
 
 describe('JourneySection', () => {
   it('renders the time tag', () => {
-    render(<JourneySection section={mockSection} />)
+    render(<JourneySection section={mockSection} sectionIndex={0} totalSections={6} />)
     expect(screen.getByText('El embarazo')).toBeInTheDocument()
   })
 
   it('renders the chapter title', () => {
-    render(<JourneySection section={mockSection} />)
+    render(<JourneySection section={mockSection} sectionIndex={0} totalSections={6} />)
     expect(screen.getByText(/La espera más larga/)).toBeInTheDocument()
   })
 
   it('renders the phrase', () => {
-    render(<JourneySection section={mockSection} />)
+    render(<JourneySection section={mockSection} sectionIndex={0} totalSections={6} />)
     expect(screen.getByText(/Lo cargaste dentro tuyo/)).toBeInTheDocument()
   })
 
   it('renders the PhotoGallery with photos', () => {
-    render(<JourneySection section={mockSection} />)
+    render(<JourneySection section={mockSection} sectionIndex={0} totalSections={6} />)
     expect(screen.getByTestId('gallery')).toBeInTheDocument()
   })
 })

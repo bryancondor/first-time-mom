@@ -2,57 +2,93 @@ import { motion } from 'framer-motion'
 import PhotoGallery from './PhotoGallery'
 import { resolvePhoto } from '../utils/resolvePhoto'
 
-export default function JourneySection({ section }) {
+const containerVariants = {
+  hidden:  { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
+}
+
+const itemVariants = {
+  hidden:  { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+}
+
+export default function JourneySection({ section, sectionIndex, totalSections }) {
   const { timeTag, title, phrase, photos, accentColor, objectPosition } = section
   const srcs = photos.map(resolvePhoto)
 
-  // Split emoji from title text for separate rendering
   const emojiMatch = title.match(/^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F)\s*/u)
-  const emoji = emojiMatch ? emojiMatch[0].trim() : ''
+  const emoji     = emojiMatch ? emojiMatch[0].trim() : ''
   const titleText = emojiMatch ? title.slice(emojiMatch[0].length) : title
+
+  const counter = sectionIndex != null
+    ? String(sectionIndex + 1).padStart(2, '0') + ' · ' + String(totalSections).padStart(2, '0')
+    : null
 
   return (
     <motion.section
       className="relative flex flex-col items-center justify-center min-h-screen px-8 py-20"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.9, ease: 'easeOut' }}
     >
       <div className="w-full max-w-4xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-8">
-          <p
-            className="text-xs font-body tracking-[0.25em] uppercase mb-4 font-semibold"
-            style={{ color: accentColor }}
+        {/* Section counter — top right, editorial style */}
+        {counter && (
+          <motion.p
+            variants={itemVariants}
+            className="text-right text-xs font-body tracking-[0.2em] text-gray-300 mb-6 select-none"
           >
-            {timeTag}
-          </p>
-          {emoji && (
-            <span className="text-3xl block mb-2">{emoji}</span>
-          )}
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-700 leading-tight">
-            {titleText}
-          </h2>
-        </div>
+            {counter}
+          </motion.p>
+        )}
 
-        {/* Photo */}
-        <div className="mb-10">
-          <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} />
-        </div>
+        {/* Time tag */}
+        <motion.p
+          variants={itemVariants}
+          className="text-center text-xs font-body tracking-[0.25em] uppercase font-semibold mb-4"
+          style={{ color: accentColor }}
+        >
+          {timeTag}
+        </motion.p>
 
-        {/* Phrase */}
-        <div className="max-w-2xl mx-auto text-center">
-          <div
-            className="inline-block border-l-4 pl-6 text-left"
-            style={{ borderColor: accentColor }}
-          >
-            <p className="font-display text-xl lg:text-2xl text-gray-600 italic leading-relaxed">
+        {/* Emoji */}
+        {emoji && (
+          <motion.span variants={itemVariants} className="text-3xl block text-center mb-2">
+            {emoji}
+          </motion.span>
+        )}
+
+        {/* Title */}
+        <motion.h2
+          variants={itemVariants}
+          className="font-display text-4xl lg:text-5xl font-bold text-gray-800 leading-tight text-center mb-10"
+        >
+          {titleText}
+        </motion.h2>
+
+        {/* Photo gallery */}
+        <motion.div variants={itemVariants} className="mb-12">
+          <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} accentColor={accentColor} />
+        </motion.div>
+
+        {/* Quote with decorative background mark */}
+        <motion.div variants={itemVariants} className="max-w-2xl mx-auto text-center">
+          <div className="relative inline-block text-left border-l-4 pl-6" style={{ borderColor: accentColor }}>
+            {/* Decorative large quotation mark */}
+            <span
+              className="absolute -top-4 -left-2 font-display text-8xl leading-none select-none pointer-events-none"
+              style={{ color: accentColor, opacity: 0.12 }}
+              aria-hidden="true"
+            >
+              "
+            </span>
+            <p className="font-display text-xl lg:text-2xl text-gray-700 italic leading-relaxed relative z-10">
               "{phrase}"
             </p>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </motion.section>
