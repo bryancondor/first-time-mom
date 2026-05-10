@@ -9,11 +9,8 @@ const closingPhoto = resolvePhoto('s6-big-smile.jpg')
 export default function VideoClosing() {
   const videoRef = useRef()
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {})
-    }
-  }, [])
+  // No autoplay — user presses play to hear audio
+  useEffect(() => {}, [])
 
   return (
     <>
@@ -37,12 +34,11 @@ export default function VideoClosing() {
               ref={videoRef}
               data-testid="closing-video"
               src={videoSrc}
-              muted
               loop
               playsInline
               controls
               className="w-full h-auto"
-              style={{ aspectRatio: '9/16' }}
+              style={{ aspectRatio: '9/16', filter: 'brightness(0.82) saturate(0.88)' }}
             />
           </div>
         </div>
