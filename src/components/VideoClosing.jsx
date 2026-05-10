@@ -16,7 +16,7 @@ export default function VideoClosing() {
     <>
       {/* Screen 1 — Video */}
       <motion.section
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center"
+        className="relative flex flex-col items-center justify-center min-h-screen px-6 py-12 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -29,7 +29,7 @@ export default function VideoClosing() {
           🎬 La primera carcajada
         </h2>
         <div className="flex justify-center">
-          <div className="rounded-3xl overflow-hidden shadow-2xl w-full max-w-xs">
+          <div className="rounded-3xl overflow-hidden shadow-2xl w-full max-w-[240px] sm:max-w-xs">
             <video
               ref={videoRef}
               data-testid="closing-video"
@@ -46,7 +46,7 @@ export default function VideoClosing() {
 
       {/* Screen 2 — Closing photo + Feliz día */}
       <motion.section
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20 text-center overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-screen px-6 py-12 text-center overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -68,7 +68,7 @@ export default function VideoClosing() {
         </div>
 
         <div className="relative">
-          <div className="w-56 h-56 lg:w-72 lg:h-72 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-white mb-10">
+          <div className="w-40 h-40 lg:w-72 lg:h-72 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-white mb-8">
             <img
               src={closingPhoto}
               alt="Adrián riéndose"
@@ -76,10 +76,10 @@ export default function VideoClosing() {
             />
           </div>
 
-          <p className="font-display text-5xl lg:text-6xl font-bold text-gray-800 mb-5">
+          <p className="font-display text-3xl lg:text-6xl font-bold text-gray-800 mb-5">
             Feliz día, mamá.
           </p>
-          <p className="font-display text-xl text-gray-500 italic">
+          <p className="font-display text-base text-gray-500 italic">
             Te amamos, Adrián. 💕
           </p>
         </div>
