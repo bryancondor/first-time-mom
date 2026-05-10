@@ -9,6 +9,7 @@ export const sections = [
       's1-silhouette-belly.jpg',
       's1-silhouette-kiss.jpg',
     ],
+    objectPosition: 'top',
   },
   {
     id: 's2',

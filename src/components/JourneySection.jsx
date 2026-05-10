@@ -3,7 +3,7 @@ import PhotoGallery from './PhotoGallery'
 import { resolvePhoto } from '../utils/resolvePhoto'
 
 export default function JourneySection({ section }) {
-  const { timeTag, title, phrase, photos, accentColor } = section
+  const { timeTag, title, phrase, photos, accentColor, objectPosition } = section
   const srcs = photos.map(resolvePhoto)
 
   // Split emoji from title text for separate rendering
@@ -39,7 +39,7 @@ export default function JourneySection({ section }) {
 
         {/* Photo */}
         <div className="mb-10">
-          <PhotoGallery srcs={srcs} alt={titleText} />
+          <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} />
         </div>
 
         {/* Phrase */}
