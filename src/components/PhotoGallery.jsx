@@ -57,7 +57,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             key={index}
             src={srcs[index]}
             alt={`${alt} ${index + 1}`}
-            className="w-full h-[420px] lg:h-[560px] object-cover"
+            className="w-full h-[340px] lg:h-[440px] object-cover"
             style={{ objectPosition }}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -94,14 +94,14 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             <button
               aria-label="prev"
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center text-gray-600 shadow-md text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-7 h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-0 group-hover:opacity-100 transition-all duration-200"
             >
               ‹
             </button>
             <button
               aria-label="next"
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center text-gray-600 shadow-md text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full w-7 h-7 flex items-center justify-center text-gray-500 shadow text-sm opacity-0 group-hover:opacity-100 transition-all duration-200"
             >
               ›
             </button>

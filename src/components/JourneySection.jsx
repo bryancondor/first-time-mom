@@ -26,7 +26,7 @@ export default function JourneySection({ section, sectionIndex, totalSections })
 
   return (
     <motion.section
-      className="relative flex flex-col items-center justify-center min-h-screen px-8 py-20"
+      className="relative flex flex-col items-center justify-center min-h-screen px-8 py-14"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -63,13 +63,13 @@ export default function JourneySection({ section, sectionIndex, totalSections })
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="font-display text-4xl lg:text-5xl font-bold text-gray-800 leading-tight text-center mb-10"
+          className="font-display text-3xl lg:text-4xl font-bold text-gray-800 leading-tight text-center mb-7"
         >
           {titleText}
         </motion.h2>
 
         {/* Photo gallery */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={itemVariants} className="mb-8">
           <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} accentColor={accentColor} />
         </motion.div>
 
