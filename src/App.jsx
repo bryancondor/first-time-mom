@@ -5,15 +5,27 @@ import VideoClosing from './components/VideoClosing'
 import MusicPlayer from './components/MusicPlayer'
 import { sections } from './data/journey'
 
+function Divider({ color }) {
+  return (
+    <div className="flex justify-center py-4" aria-hidden="true">
+      <span style={{ color }} className="text-2xl tracking-widest select-none">· · ·</span>
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <div className="relative min-h-screen bg-cream">
       <FloatingScene />
       <div className="relative" style={{ zIndex: 1 }}>
         <Hero />
-        {sections.map(section => (
-          <JourneySection key={section.id} section={section} />
+        {sections.map((section, i) => (
+          <div key={section.id}>
+            {i > 0 && <Divider color={section.accentColor} />}
+            <JourneySection section={section} />
+          </div>
         ))}
+        <Divider color="#fda4af" />
         <VideoClosing />
       </div>
       <MusicPlayer />
