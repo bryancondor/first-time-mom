@@ -3,11 +3,13 @@ import { render, screen } from '@testing-library/react'
 import VideoClosing from './VideoClosing'
 
 vi.mock('../assets/video/s6-carcajada.mp4', () => ({ default: '/mock-video.mp4' }))
+vi.mock('../utils/resolvePhoto', () => ({ resolvePhoto: (f) => `/photos/${f}` }))
 vi.mock('framer-motion', () => ({
   motion: {
     section: ({ children, className }) => <section className={className}>{children}</section>,
     span:    ({ children, style, className }) => <span style={style} className={className}>{children}</span>,
     p:       ({ children, className }) => <p className={className}>{children}</p>,
+    div:     ({ children, className }) => <div className={className}>{children}</div>,
   },
 }))
 
