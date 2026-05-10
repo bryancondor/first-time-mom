@@ -13,7 +13,7 @@ const itemVariants = {
 }
 
 export default function JourneySection({ section, sectionIndex, totalSections }) {
-  const { timeTag, title, phrase, photos, accentColor, objectPosition } = section
+  const { timeTag, title, phrase, photos, accentColor, objectPosition, photoHeight } = section
   const srcs = photos.map(resolvePhoto)
 
   const emojiMatch = title.match(/^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F)\s*/u)
@@ -70,7 +70,7 @@ export default function JourneySection({ section, sectionIndex, totalSections })
 
         {/* Photo gallery */}
         <motion.div variants={itemVariants} className="mb-8">
-          <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} accentColor={accentColor} />
+          <PhotoGallery srcs={srcs} alt={titleText} objectPosition={objectPosition} accentColor={accentColor} photoHeight={photoHeight} />
         </motion.div>
 
         {/* Quote with decorative background mark */}

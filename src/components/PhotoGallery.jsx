@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const AUTO_INTERVAL = 6000
 
-export default function PhotoGallery({ srcs, alt, objectPosition = 'center', accentColor = '#fda4af' }) {
+export default function PhotoGallery({ srcs, alt, objectPosition = 'center', accentColor = '#fda4af', photoHeight }) {
   const [index, setIndex]     = useState(0)
   const [paused, setPaused]   = useState(false)
   const [progress, setProgress] = useState(0)
@@ -57,7 +57,7 @@ export default function PhotoGallery({ srcs, alt, objectPosition = 'center', acc
             key={index}
             src={srcs[index]}
             alt={`${alt} ${index + 1}`}
-            className="gallery-img w-full h-[340px] lg:h-[440px] object-cover"
+            className={`gallery-img w-full object-cover ${photoHeight ?? 'h-[340px] lg:h-[440px]'}`}
             style={{ objectPosition }}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
