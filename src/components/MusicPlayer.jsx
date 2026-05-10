@@ -51,7 +51,7 @@ export default function MusicPlayer() {
       <motion.button
         onClick={toggle}
         aria-label={playing ? 'pausar música' : 'reproducir música'}
-        className="fixed bottom-6 right-6 z-50 bg-white/90 backdrop-blur-sm border border-pink/20 text-gray-600 rounded-full px-4 py-2.5 text-sm font-body shadow-lg flex items-center gap-2.5 hover:bg-white hover:shadow-xl transition-all"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-white/90 backdrop-blur-sm border border-pink/20 text-gray-600 rounded-full px-4 py-3 sm:py-2.5 text-sm font-body shadow-lg flex items-center gap-2.5 hover:bg-white hover:shadow-xl transition-all"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.5, duration: 0.6 }}

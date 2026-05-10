@@ -8,7 +8,7 @@ import { sections } from './data/journey'
 
 function Divider({ color }) {
   return (
-    <div className="flex justify-center py-10 px-8" aria-hidden="true">
+    <div className="flex justify-center py-6 sm:py-10 px-5 sm:px-8" aria-hidden="true">
       <div
         className="w-full max-w-4xl h-px"
         style={{ background: `linear-gradient(to right, transparent, ${color}80, transparent)` }}
